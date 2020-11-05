@@ -1,6 +1,6 @@
 
 
-# INTERACT Data guidelines v 0.01
+# INTERACT Metadata guidelines v 0.01
 
 #### Minimum necessary fields for Dataset ([science-on-schema.org](https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md), [DCAT-AP](https://www.w3.org/TR/vocab-dcat-2/#Class:Dataset))
 
