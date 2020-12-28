@@ -158,6 +158,7 @@ A descriptive name of a dataset.
 ```xml
 <dct:title xml:lang="en">Nobel Media Dataset catalog</dct:title>
 ```
+&nbsp;
 
 ## description
 
@@ -187,6 +188,7 @@ A short summary describing a dataset.
 ```xml
 <dct:description xml:lang="en">This dataset includes results of laboratory experiments which measured dissolved organic carbon (DOC) usage by natural bacteria in seawater at different pCO2 levels. Included in this dataset are; bacterial abundance, total organic carbon (TOC), what DOC was added to the experiment, target pCO2 level.</dct:description>\
 ```
+&nbsp;
 
 ## keywords
 
@@ -205,11 +207,11 @@ Keywords summarizing the dataset.
 
 ##### DCAT-AP
 
-Use a keyword tag for each keyword.The value of each tag must be an alphanumeric string.
+Use a keyword tag for each keyword. The value of each tag must be an alphanumeric string. The use of [GCMD](https://earthdata.nasa.gov/earth-observation-data/find-data/gcmd/gcmd-keywords) keywords is encouraged but not required. The keyword list must contain some values in English. 
 
 ##### JSON-LD
 
-Value must be a valid list of alphanumeric strings separated by a comma.
+Value must be a valid list of alphanumeric strings separated by a comma. The use of [GCMD](https://earthdata.nasa.gov/earth-observation-data/find-data/gcmd/gcmd-keywords) keywords is encouraged but not required. The keyword list must contain some values in English.
 
 #### Examples (in JSON-LD format):
 ```json
@@ -223,6 +225,7 @@ Value must be a valid list of alphanumeric strings separated by a comma.
 
 <dcat:keyword>pCO2</dcat:keyword>
  ```
+&nbsp;
 
 ## url 
 
@@ -240,7 +243,8 @@ Location of a page describing the dataset.
 
 #### Guidelines:
 
-Value must be a valid URL.
+Value must be a single valid URL forwarding either to the dataset directly or on the landing page in which to access the dataset. 
+In the case of a metadata record describing multiple URL / resources, these must be collected on a single landing page.  
 
 #### Examples (in JSON-LD format):
 ```json
@@ -256,6 +260,7 @@ Value must be a valid URL.
 
 </dcat:landingPage>
 ```
+&nbsp;
 
 
 ## citation
@@ -300,13 +305,13 @@ https://doi.org/10.25919/5b4d2b83cbf2d
 
 </dcat:identifier>
 ```
+&nbsp;
  
 
 ## creator
 
-
-
 #### Type: [Text](https://schema.org/Text)
+
 #### Field name:
 
 [DCAT-AP](https://www.w3.org/TR/vocab-dcat-2/#Property:resource_creator):  dct:creator
@@ -349,6 +354,8 @@ The author of the content
 ```
 #### Examples (in DCAT-AP format):
 
+&nbsp;
+
 
 ## topicCategory
 
@@ -378,7 +385,7 @@ Use INTERACT's list of approved topics.
 ```xml
 <dct:theme>environment</dct:theme>
 ```
-
+&nbsp;
 ## temporalCoverage
 
 
@@ -428,7 +435,7 @@ Use the ISO 8601 standard to describe time intervals and time points. You can de
 
 </dct:temporal>
  ```
-
+&nbsp;
 
 ## spatialCoverage
 
@@ -517,6 +524,7 @@ Points inside box, circle, line, or  polygon  properties must be expressed as a 
 
 </dct:spatial>
 ```
+&nbsp;
 
 ## datePublished
 
@@ -543,11 +551,11 @@ Use ISO 8601 Date and Time compliant string
 ```xml
 <dct:issued rdf:datatype="&xsd;date">2012-01-15</dct:issued>
 ```
+&nbsp;
 ## dateModified
 
-
-
 #### Type: [Text](https://schema.org/Text)
+
 #### Field name:
 
 [DCAT-AP](https://www.w3.org/TR/vocab-dcat-2/#Property:resource_update_date):  dct:modified
@@ -570,7 +578,7 @@ Use ISO 8601 Date and Time compliant string
 ```xml
 <dct:modified rdf:datatype="&xsd;date">2015-05-25</dct:modified>\
  ```
-
+&nbsp;
 
 ## publisher
 
@@ -591,13 +599,12 @@ The entity responsible for making the item available.
 ```xml
 <dct:publisher rdf:resource="http://dati.gov.it/resource/Amministrazione/agid"/>\
  ```
-
+&nbsp;
 
 ## provider
 
-
-
 #### Type: [Text](https://schema.org/Text)
+
 #### Field name:
 
 [DCAT-AP](https://www.w3.org/TR/vocab-dcat-2/#Property:relationship_hadRole):  dcat:hadRole
@@ -616,11 +623,11 @@ Use INTERACT's list of approved identifiers for stations and partners.
 
 #### Examples (in DCAT-AP format):
 
+&nbsp;
 ## license
 
- 
-
 #### Type: [URL](https://schema.org/URL)
+
 #### Field name:
 
 [DCAT-AP](https://www.w3.org/TR/vocab-dcat-2/#Property:resource_license):  dct:license
@@ -653,7 +660,7 @@ Value must be a list of valid URLs separated by a comma.
 
 </dct:license>
 ```
- 
+ &nbsp;
 
 ## variableMeasured(to be discussed)
 
@@ -690,6 +697,8 @@ To be discussed
 
 #### Examples (in DCAT-AP format):
 
+
+&nbsp;
 # Relevant resources:
 
 1.  [DCAT-AP to schema.org](https://ec-jrc.github.io/dcat-ap-to-schema-org/)
