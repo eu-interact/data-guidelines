@@ -1,9 +1,137 @@
 
 
-# INTERACT Metadata guidelines v 0.01
+# INTERACT Metadata guidelines
 
-#### Minimum necessary fields for Dataset ([science-on-schema.org](https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md), [DCAT-AP](https://www.w3.org/TR/vocab-dcat-2/#Class:Dataset))
 
+
+# Minimum necessary fields for Dataset ([science-on-schema.org](https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md), [DCAT-AP](https://www.w3.org/TR/vocab-dcat-2/#Class:Dataset))
+
+## Introduction on the purpose of guidelines
+
+Metadata guidelines are documented agreements regarding the representation, format, definition, structuring of metadata in a context of a data sharing network. Metadata guidelines regulate how data can be shared across systems providing a context in which to work predictably,
+allowing a streamlined and potentially fully automated operation to be put in place enabling wider access and reusability, as common clear defined meanings for data encourage data of higher quality that can be consumed by both humans and machines for multiple purposes.
+They enable consistent results during data retrieval and processing, regardless of the source that is providing such data and encourage good practices that make data more findable, accessible, interoperable and reusable (FAIR data principles).
+
+
+## Dataset fields
+
+- [name](#name)
+    + [Type](#type---text--https---schemaorg-text-)
+    + [Field name](#field-name-)
+    + [Description](#description-)
+    + [Guidelines](#guidelines-)
+    + [Example (in JSON-LD format)](#example--in-json-ld-format--)
+    + [Example (in DCAT-AP format)](#example--in-dcat-ap-format--)
+
+- [description](#description)
+    + [Type](#type-----text--https---schemaorg-text-)
+    + [Field name](#field-name--1)
+    + [Description](#description--1)
+    + [Guidelines](#guidelines--1)
+    + [Example (in JSON-LD format)](#example--in-json-ld-format---1)
+    + [Example (in DCAT-AP format)](#example--in-dcat-ap-format---1)
+
+- [keywords](#keywords)
+    + [Type](#type---text--https---schemaorg-text--1)
+    + [Field name](#field-name--2)
+    + [Description](#description--2)
+    + [Guidelines](#guidelines--2)
+    + [Examples (in JSON-LD format)](#examples--in-json-ld-format--)
+    + [Examples (in DCAT-AP format)](#examples--in-dcat-ap-format--)
+
+- [url](#url)
+    + [Type](#type---url--https---schemaorg-url-)
+    + [Field name](#field-name--3)
+    + [Description](#description--3)
+    + [Guidelines](#guidelines--3)
+    + [Examples (in JSON-LD format)](#examples--in-json-ld-format---1)
+    + [Examples (in DCAT-AP format)](#examples--in-dcat-ap-format---1)
+
+- [citation](#citation)
+    + [Type](#type----text--https---schemaorg-text--or--creativework--https---schemaorg-creativework-)
+    + [Field name](#field-name--4)
+    + [Description](#description--4)
+    + [Guidelines](#guidelines--4)
+    + [Examples (in JSON-LD format)](#examples--in-json-ld-format---2)
+    + [Examples (in DCAT-AP format)](#examples--in-dcat-ap-format---2)
+
+- [creator](#creator)
+    + [Type](#type---text--https---schemaorg-text--2)
+    + [Field name](#field-name--5)
+    + [Description](#description--5)
+    + [Examples (in JSON-LD format)](#examples--in-json-ld-format---3)
+    + [Examples (in DCAT-AP format)](#examples--in-dcat-ap-format---3)
+
+- [topicCategory](#topiccategory)
+    + [Type](#type---text--https---schemaorg-text--3)
+    + [Field name](#field-name--6)
+    + [Description](#description--6)
+    + [Guidelines](#guidelines--5)
+    + [Examples (in JSON-LD format)](#examples--in-json-ld-format---4)
+    + [Examples (in DCAT-AP format)](#examples--in-dcat-ap-format---4)
+
+- [temporalCoverage](#temporalcoverage)
+    + [type](#type---text--https---schemaorg-text-)
+    + [Field name](#field-name--7)
+    + [Description](#description--7)
+    + [Guidelines](#guidelines--6)
+    + [Examples (in JSON-LD format)](#examples--in-json-ld-format---5)
+    + [Examples (in DCAT-AP format)](#examples--in-dcat-ap-format---5)
+
+- [spatialCoverage](#spatialcoverage)
+    + [Type](#type---text--https---schemaorg-text----place--https---schemaorg-place-)
+    + [Field name](#field-name--8)
+    + [Description](#description--8)
+    + [Guidelines](#guidelines--7)
+    + [Examples (in JSON-LD format)](#examples--in-json-ld-format---6)
+    + [Examples (in DCAT-AP format)](#examples--in-dcat-ap-format---6)
+
+- [datePublished](#datepublished)
+    + [Type](#type---text--https---schemaorg-text--4)
+    + [Field name](#field-name--9)
+    + [Description](#description--9)
+    + [Guidelines](#guidelines--8)
+    + [Examples (in JSON-LD format)](#examples--in-json-ld-format---7)
+    + [Examples (in DCAT-AP format)](#examples--in-dcat-ap-format---7)
+
+- [dateModified](#datemodified)
+    + [Type](#type---text--https---schemaorg-text--5)
+    + [Field name](#field-name--10)
+    + [Description](#description--10)
+    + [Guidelines](#guidelines--9)
+    + [Examples (in JSON-LD format)](#examples--in-json-ld-format---8)
+    + [Examples (in DCAT-AP format)](#examples--in-dcat-ap-format---8)
+
+- [publisher](#publisher)
+    + [Type](#type---text--https---schemaorg-text--6)
+    + [Field name](#field-name--11)
+    + [Description](#description--11)
+    + [Examples (in JSON-LD format)](#examples--in-json-ld-format---9)
+    + [Examples (in DCAT-AP format)](#examples--in-dcat-ap-format---9)
+
+- [provider](#provider)
+    + [Type](#type---text--https---schemaorg-text--7)
+    + [Field name](#field-name--12)
+    + [Description](#description--12)
+    + [Guidelines](#guidelines--10)
+    + [Examples (in JSON-LD format)](#examples--in-json-ld-format---10)
+    + [Examples (in DCAT-AP format)](#examples--in-dcat-ap-format---10)
+
+- [license](#license)
+    + [Type](#type---url--https---schemaorg-url--1)
+    + [Field name](#field-name--13)
+    + [Description](#description--13)
+    + [Guidelines](#guidelines--11)
+    + [Examples (in JSON-LD format)](#examples--in-json-ld-format---11)
+    + [Examples (in DCAT-AP format)](#examples--in-dcat-ap-format---11)
+
+- [variableMeasured](#variablemeasured-to-be-discussed-)
+    + [Type](#type---text--https---schemaorg-text--8)
+    + [Field name](#field-name--14)
+    + [Description](#description--14)
+    + [Guidelines](#guidelines--12)
+    + [Examples (in JSON-LD format)](#examples--in-json-ld-format---12)
+    + [Examples (in DCAT-AP format)](#examples--in-dcat-ap-format---12)
 
 
 ## name
@@ -557,7 +685,9 @@ To be discussed
     "url": "http://www.cen.ulaval.ca/nordicanad/infounitedonnees.aspx?id=591304"
 
       }
+
 ```
+
 #### Examples (in DCAT-AP format):
 
 # Relevant resources:
