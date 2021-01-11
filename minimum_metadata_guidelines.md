@@ -4,6 +4,7 @@
   
 # Minimum necessary fields for Dataset ([science-on-schema.org](https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md), [DCAT-AP](https://www.w3.org/TR/vocab-dcat-2/#Class:Dataset))  
   
+  
 ## Introduction on the purpose of guidelines  
   
 Metadata guidelines are documented agreements regarding the representation, format, definition, structuring of metadata in a context of a data sharing network. Metadata guidelines regulate how data can be shared across systems providing a context in which to work predictably,  
@@ -12,6 +13,9 @@ They enable consistent results during data retrieval and processing, regardless 
   
   
 ## Dataset fields  
+
+  _Unless otherwise specified all fields are to be considered mandatory._
+
   
   - [name](#name)
       - [Type](#type-text)
@@ -286,9 +290,9 @@ Identifies academic articles that are recommended by the data provider be cited 
   
 #### Guidelines:  
   
-- When populating the citation property with a citation snippet, provide the article identifier (such as a DOI) whenever possible.\  
-    Recommended: "Doe J (2014) Influence of X. Biomics 1(1). https://doi.org/10.1111/111"\  
-    Not recommended: "Doe J (2014) Influence of X. Biomics 1(1)."  
+- When populating the citation property with a citation snippet, provide the article identifier (such as a DOI) whenever possible.  
+    **Recommended:** "Doe J (2014) Influence of X. Biomics 1(1). https://doi.org/10.1111/111"\  
+    **Not recommended:** "Doe J (2014) Influence of X. Biomics 1(1)."  
   
 #### Examples (in JSON-LD format):  
 ```json  
@@ -308,11 +312,7 @@ Identifies academic articles that are recommended by the data provider be cited 
 #### Examples (in DCAT-AP format):  
 ```xml  
   
- <dct:identifier>  
-  
-https://doi.org/10.25919/5b4d2b83cbf2d  
-  
-</dcat:identifier>  
+ <dct:identifier> https://doi.org/10.25919/5b4d2b83cbf2d </dcat:identifier>  
 ```
 
 &nbsp;  
@@ -327,6 +327,10 @@ https://doi.org/10.25919/5b4d2b83cbf2d
 [DCAT-AP](https://www.w3.org/TR/vocab-dcat-2/#Property:resource_creator):  dct:creator  
   
 [Science-on-schema.org](https://schema.org/creator): creator  
+
+#### Guidelines
+
+Refer to the specifications of the respective used standard.
   
 #### Description:  
   
@@ -351,11 +355,28 @@ The author of the content
  ```  
 
 #### Examples (in DCAT-AP format):  
+
+```xml
+<dct:creator>
+      <rdf:Description>
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <foaf:name>Kai, Wagner</foaf:name>
+        <foaf:givenName>Wagner</foaf:givenName>
+        <foaf:familyName>Kai</foaf:familyName>
+        <org:memberOf>
+          <foaf:Organization>
+            <foaf:name>HZDR</foaf:name>
+          </foaf:Organization>
+        </org:memberOf>
+      </rdf:Description>
+    </dct:creator>
+```
+
   
 &nbsp;  
   
   
-## topicCategory  
+## topicCategory  (Recommended, not mandatory)
   
 #### Type: [Text](https://schema.org/Text)
 
@@ -423,7 +444,14 @@ Use the ISO 8601 standard to describe time intervals and time points. You can de
 
 ---  
 
-#### Examples (in DCAT-AP format):  
+#### Examples (in DCAT-AP format): 
+
+#####   Single date  
+```xml  
+<dct:temporal> 2009-07-28 </dct:temporal>
+```  
+
+##### Time period  
 ```xml  
 <dct:temporal>  
   
@@ -431,6 +459,19 @@ Use the ISO 8601 standard to describe time intervals and time points. You can de
   
  <schema:startDate>2009-07-28</schema:startDate>  
  <schema:endDate>2009-11-20</schema:endDate>  
+  
+</dct:PeriodOfTime>  
+  
+</dct:temporal>  
+ ```
+
+##### Open-ended time period    
+```xml  
+<dct:temporal>  
+  
+<dct:PeriodOfTime>  
+  
+ <schema:startDate>2009-07-28</schema:startDate>  
   
 </dct:PeriodOfTime>  
   
@@ -604,7 +645,22 @@ Use ISO 8601 Date and Time compliant string
   
 The entity responsible for making the item available.  
   
+#### Guidelines
+
+Refer to the specifications of the respective used standard. Use INTERACT's list of approved identifiers for stations and partners.   
+
 #### Examples (in JSON-LD format):  
+
+```json
+"publisher": {
+    "@id": "https://www.sample-data-repository.org",
+    "@type": "Organization",
+    "legalName": "Sample Data Repository Office",
+    "name": "SDRO",
+    "sameAs": "http://www.re3data.org/repository/r3dxxxxxxxxx",
+    "url": "https://www.sample-data-repository.org"
+  }
+```
   
 #### Examples (in DCAT-AP format):  
 
@@ -629,12 +685,27 @@ The entity responsible for making the item available.
 The id of the entity that produced the metadata.  
   
 #### Guidelines:  
-  
-Use INTERACT's list of approved identifiers for stations and partners.   
+
+Refer to the specifications of the respective used standard. Use INTERACT's list of approved identifiers for stations and partners.   
   
 #### Examples (in JSON-LD format):  
+
+```json
+"provider": {
+    "@id": "https://www.sample-data-repository.org",
+    "@type": "Organization",
+    "legalName": "Sample Data Repository Office",
+    "name": "SDRO",
+    "sameAs": "http://www.re3data.org/repository/r3dxxxxxxxxx",
+    "url": "https://www.sample-data-repository.org"
+  }
+```
   
-#### Examples (in DCAT-AP format):  
+#### Examples (in DCAT-AP format):
+
+```xml
+    <dcat:hadRole> http://registry.it.csiro.au/def/isotc211/CI_RoleCode/funder </dcat:hadRole>
+```
   
 &nbsp; 
 
@@ -680,14 +751,12 @@ Value must be a list of valid URLs separated by a comma.
 
 &nbsp;  
   
-## variableMeasured(to be discussed)  
+## variableMeasured (Recommended, not mandatory)
   
 #### Type: [Text](https://schema.org/Text)
 
 #### Field name:  
-  
-DCAT-AP:  to be discussed  
-  
+    
 [Science-on-schema.org](https://schema.org/variableMeasured): variableMeasured  
   
 #### Description:  
@@ -697,6 +766,7 @@ The variableMeasured property can indicate (repeated as necessary) the variables
 #### Guidelines:  
 To be discussed  
 #### Examples (in JSON-LD format):  
+
 ```json  
 "variableMeasured": [  
   
@@ -706,10 +776,7 @@ To be discussed
  "unitText": "Percentage",  
  "url": "http://www.cen.ulaval.ca/nordicanad/infounitedonnees.aspx?id=591304"  
  }  
-```  
-  
-#### Examples (in DCAT-AP format):  
-  
+```    
   
 &nbsp;  
 
