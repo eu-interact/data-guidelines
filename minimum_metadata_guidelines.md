@@ -392,7 +392,7 @@ The subject matter of the content.
   
 #### Guidelines:  
   
-Include one topic from INTERACT's list of approved [topics]([https://github](https://github.com/eu-interact/data-guidelines/blob/master/topics.md)).   
+Include one of the subtopics of GCMD's ["Earth science"](https://gcmd.earthdata.nasa.gov/KeywordViewer/scheme/all/e9f67a66-e9fc-435c-b720-ae32a2c3d8f5?gtm_keyword=EARTH%20SCIENCE&gtm_scheme=Earth%20Science)   
     
 #### Examples (in JSON-LD format):  
 ```json  
