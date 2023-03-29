@@ -376,7 +376,7 @@ The author of the content
 &nbsp;  
   
   
-## topicCategory  (Recommended, not mandatory)
+## topicCategory
   
 #### Type: [Text](https://schema.org/Text)
 
@@ -392,18 +392,16 @@ The subject matter of the content.
   
 #### Guidelines:  
   
-Use INTERACT's list of approved topics.   
-  
-(to be defined)  
-  
+Include one topic from INTERACT's list of approved [topics]([https://github](https://github.com/eu-interact/data-guidelines/blob/master/topics.md)).   
+    
 #### Examples (in JSON-LD format):  
 ```json  
-"about":"environment"  
+"about":"CRYOSPHERE"  
 ```  
 
 #### Examples (in DCAT-AP format):  
 ```xml  
-<dct:theme>environment</dct:theme>  
+<dct:theme>BIOSPHERE</dct:theme>  
 ```  
 
 &nbsp;  
